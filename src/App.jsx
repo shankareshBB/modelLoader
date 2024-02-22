@@ -177,7 +177,7 @@ function App() {
       </div>
       <h1>Tensorflow JS and Teachable Machine</h1>
       <div>
-        browserName: {deviceDetails?.browserName || "-"}, <br/>
+        {/* browserName: {deviceDetails?.browserName || "-"}, <br/>
         browserVersion: {deviceDetails?.browserVersion || "-"}, <br/>
         deviceType: {deviceDetails?.deviceType || "-"}, <br/>
         engineName: {deviceDetails?.engineName || "-"}, <br/>
@@ -186,8 +186,67 @@ function App() {
         mobileModel: {deviceDetails?.mobileModel || "-"}, <br/>
         mobileVendor: {deviceDetails?.mobileVendor || "-"}, <br/>
         osName: {deviceDetails?.osName || "-"}, <br/>
-        osVersion: {deviceDetails?.osVersion || "-"}, <br/>
+        osVersion: {deviceDetails?.osVersion || "-"}, <br/> */}
+        <table>
+    <tbody>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>isBrowser</td>
+        <td>{deviceDetails?.isBrowser?"True":"False"}</td>
+      </tr>
+      <tr>
+        <td>browserVersion</td>
+        <td>{deviceDetails?.browserVersion || "-"}</td>
+      </tr>
+      <tr>
+        <td>fullBrowserVersion</td>
+        <td>{deviceDetails?.fullBrowserVersion || "-"}</td>
+      </tr>
+      <tr>
+        <td>browserName</td>
+        <td>{deviceDetails?.browserName || "-"}</td>
+      </tr>
+      <tr>
+        <td>deviceType</td>
+        <td>{deviceDetails?.deviceType || "-"}</td>
+      </tr>
+      <tr>
+        <td>engineName</td>
+        <td>{deviceDetails?.engineName || "-"}</td>
+      </tr>
+      <tr>
+        <td>engineVersion</td>
+        <td>{deviceDetails?.engineVersion || "-"}</td>
+      </tr>
+      <tr>
+        <td>osName</td>
+        <td>{deviceDetails?.osName || "-"}</td>
+      </tr>
+      <tr>
+        <td>osVersion</td>
+        <td>{deviceDetails?.osVersion || "-"}</td>
+      </tr>
+      <tr>
+        <td>userAgent</td>
+        <td>{deviceDetails?.getUA || "-"}</td>
+      </tr>
+      <tr>
+        <td>mobileModel</td>
+        <td>{deviceDetails?.mobileModel || "-"}</td>
+      </tr>
+      <tr>
+        <td>mobileVendor</td>
+        <td>{deviceDetails?.mobileVendor || "-"}</td>
+      </tr>
+    </tbody>
+  </table>
       </div>
+      <p className="read-the-docs">
+      {displayErrorMessage}
+      </p>
       <div className="card">
         <button onClick={() => Promise.all([loadCocoSsdModel()]).then(() => {})} disabled={!isLoadedObjectModel}>
           Coco-ssd Model
@@ -228,9 +287,6 @@ function App() {
           Load All parallel
         </button>
       </div>
-      <p className="read-the-docs">
-      {displayErrorMessage}
-      </p>
     </>
   )
 }
