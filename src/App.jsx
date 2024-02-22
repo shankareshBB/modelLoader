@@ -5,7 +5,8 @@ import * as tf from "@tensorflow/tfjs";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import * as tmImage from "@teachablemachine/image";
 import * as blazeface from "@tensorflow-models/blazeface";
-import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";
+import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";// device detection
+import * as deviceDetails from 'react-device-detect';
 import './App.css'
 
 function App() {
@@ -44,6 +45,13 @@ function App() {
   //       });
   //   });
   // }
+  console.log("Device Details >>>>", deviceDetails);
+  // console.log("Device Details >>>> deviceDetect >>>", deviceDetails.deviceDetect());
+  // console.log("Device Details >>>> getSelectorsByUserAgent >>>", deviceDetails.getSelectorsByUserAgent());
+  // console.log("Device Details >>>> parseUserAgent >>>", deviceDetails.parseUserAgent());
+  // console.log("Device Details >>>> setUserAgent >>>", deviceDetails.setUserAgent());
+  // console.log("Device Details >>>> useDeviceData >>>", deviceDetails.useDeviceData());
+  // console.log("Device Details >>>> useDeviceSelectors >>>", deviceDetails.useDeviceSelectors());
   const loadCocoSsdModel = async () => {
     try {
       await tf.ready();
@@ -168,6 +176,18 @@ function App() {
         </a>
       </div>
       <h1>Tensorflow JS and Teachable Machine</h1>
+      <div>
+        browserName: {deviceDetails?.browserName || "-"}, <br/>
+        browserVersion: {deviceDetails?.browserVersion || "-"}, <br/>
+        deviceType: {deviceDetails?.deviceType || "-"}, <br/>
+        engineName: {deviceDetails?.engineName || "-"}, <br/>
+        engineVersion: {deviceDetails?.engineVersion || "-"}, <br/>
+        fullBrowserVersion: {deviceDetails?.fullBrowserVersion || "-"}, <br/>
+        mobileModel: {deviceDetails?.mobileModel || "-"}, <br/>
+        mobileVendor: {deviceDetails?.mobileVendor || "-"}, <br/>
+        osName: {deviceDetails?.osName || "-"}, <br/>
+        osVersion: {deviceDetails?.osVersion || "-"}, <br/>
+      </div>
       <div className="card">
         <button onClick={() => Promise.all([loadCocoSsdModel()]).then(() => {})} disabled={!isLoadedObjectModel}>
           Coco-ssd Model
