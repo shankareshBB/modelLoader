@@ -1,12 +1,14 @@
 import { useState, useRef } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from './assets/vite.svg'
 import * as tf from "@tensorflow/tfjs";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import * as tmImage from "@teachablemachine/image";
 import * as blazeface from "@tensorflow-models/blazeface";
 import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";// device detection
 import * as deviceDetails from 'react-device-detect';
+// import WebcamRecorder from './Components/WebcamRecorder';
+import WebcamMediaRecorder from './Components/WebcamMediaRecorder';
 import './App.css'
 
 function App() {
@@ -175,6 +177,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <h1>Webcam Recorder with React Webcam & RecordRTC</h1>
+      {/* <WebcamRecorder /> */}
+      <WebcamMediaRecorder />
       <h1>Tensorflow JS and Teachable Machine</h1>
       <div>
         {/* browserName: {deviceDetails?.browserName || "-"}, <br/>
